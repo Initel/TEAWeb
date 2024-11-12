@@ -2,26 +2,28 @@
 
 include_once("./connect.php");
 
-// Função para cadastrar usuário
-function cadastrar($nome, $email, $senha) {
-    global $conn;
-    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        ?>
-        <div class="alert alert-danger" role="alert">
-            Erro: E-mail já cadastrado!
-        </div>
-        <?php
-    } else {
-        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
-        if ($conn->query($sql) === TRUE) {
-            echo "Usuário cadastrado com sucesso!";
-        } else {
-            echo "Erro ao cadastrar usuário: " . $conn->error;
-        }
-    }
-}
+//função para cadastrar usuário
+ function cadastrar($nome, $email, $senha) {
+     global $conn;
+
+     $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+     $result = $conn->query($sql);
+     if ($result->num_rows > 0) {
+         ?>
+         <div class="alert alert-danger" role="alert">
+             Erro: E-mail já cadastrado!
+         </div>
+         <?php
+     } else {
+         $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')"; 
+         if ($conn->query($sql) === TRUE) {
+             echo "Usuário cadastrado com sucesso!";
+             header("Location: index.php");
+         } else {
+             echo "Erro ao cadastrar usuário: " . $conn->error;
+         }
+     }
+ }
 
 // Função para excluir usuário
 function excluir($email, $senha) {
@@ -49,7 +51,6 @@ function excluir($email, $senha) {
         echo "Usuário não encontrado!";
     }
 }
-//testecorrigido@gmail.com 4321 Teste
 
 // Função para atualizar usuário
 function atualizar($email_atual, $senha_atual, $nome, $email, $senha) {
@@ -124,7 +125,12 @@ function ler() {
 
 // Formulário para cadastrar usuário
 if (isset($_POST["cadastrar"])) {
-    $nome = $_POST["nome"];
+    $nome = $_POST['nome'];
+    // $nome_R = $_POST['nome_responsavel'];
+    // $nome_C = $_POST['nome_crianca'];
+    // $nv_S = $_POST['nivel_suporte'];
+    // $tipo_A = $_POST['tipo_acompanhamento'];
+    // $idade = $_POST['idade'];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
     cadastrar($nome, $email, $senha);
