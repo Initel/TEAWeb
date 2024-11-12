@@ -1,6 +1,12 @@
 <?php
+// session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: index.php"); // Redireciona para a página de login
+    exit();
+}
+
 // Inclua o arquivo de conexão com o banco de dados
-include_once("connect.php");
+include_once("./connect.php");
 
 // Função para cadastrar tarefa
 function cadastrarTarefa($usuario_id, $descricao) {
@@ -9,7 +15,7 @@ function cadastrarTarefa($usuario_id, $descricao) {
     $conn->query($sql);
 }
 
-// Função para listar tarefas de um usuário
+// Função para listar tarefas
 function listarTarefas($usuario_id) {
     global $conn;
     $sql = "SELECT * FROM tarefas WHERE usuario_id = '$usuario_id'";
@@ -23,23 +29,19 @@ function concluirTarefa($tarefa_id) {
     $conn->query($sql);
 }
 
-// Processamento do formulário
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Verifica se a requisição é do tipo POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['descricao'])) {
-        // Cadastrar nova tarefa
         $descricao = $_POST['descricao'];
-        $usuario_id = 1; // Substitua pelo ID do usuário logado
-        cadastrarTarefa($usuario_id, $descricao);
-    } elseif (isset($_POST['concluir'])) {
-        // Concluir tarefa
-        $tarefa_id = $_POST['concluir'];
-        concluirTarefa($tarefa_id);
+        cadastrarTarefa($_SESSION['id'], $descricao);
+    }
+    if (isset($_POST['tarefa_id'])) {
+        concluirTarefa($_POST['tarefa_id']);
     }
 }
 
-// ID do usuário logado (substitua com a lógica de autenticação do seu sistema)
-$usuario_id = 1; // Exemplo de ID de usuário
-$tarefas = listarTarefas($usuario_id);
+// Obtém as tarefas do usuário logado
+$tarefas = listarTarefas($_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -48,56 +50,64 @@ $tarefas = listarTarefas($usuario_id);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        .custom-card {
+            max-width: 400px; /* Ajuste a largura máxima do card */
+            margin: auto; /* Centraliza o card na página */
         }
-        h1 {
-            color: #333;
+        .btn-concluida {
+            background-color: #d3d3d3; /* Cor cinza para o botão concluído */
+            color: #000; /* Cor do texto do botão */
         }
-        .task-list {
-            margin-top: 20px;
-        }
-        .task {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-        }
-        .task.completed {
-            text-decoration: line-through;
-            color: gray;
+        .scrollable-list {
+            max-height: 200px; /* Altura máxima da lista */
+            overflow-y: auto; /* Adiciona rolagem vertical */
         }
     </style>
 </head>
 <body>
 
-<h1>Lista de Tarefas</h1>
+<div class="container mt-5">
+    <div class="card custom-card">
+        <div class="card-header">
+            <h4>Lista de Tarefas</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="">
+                <div class="form-group">
+                    <label for="descricao">Nova Tarefa</label>
+                    <input type="text" class="form-control" name="descricao" id="descricao" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+            </form>
 
-<!-- Formulário para adicionar uma nova tarefa -->
-<form method="POST">
-    <input type="text" name="descricao" placeholder="Descrição da tarefa" required>
-    <button type="submit">Adicionar Tarefa</button>
-</form>
+            <hr>
 
-<!-- Lista de tarefas -->
-<div class="task-list">
-    <?php if ($tarefas->num_rows > 0): ?>
-        <?php while($task = $tarefas->fetch_assoc()): ?>
-            <div class="task <?= $task['status'] === 'concluída' ? 'completed' : '' ?>">
-                <span><?= htmlspecialchars($task['descricao']) ?></span>
-                <form method="POST" style="display:inline;">
-                    <input type="hidden" name="concluir" value="<?= $task['id'] ?>">
-                    <button type="submit">Concluir</button>
-                </form>
+            <h5>Tarefas:</h5>
+            <div class="scrollable-list">
+                <ul class="list-group">
+                    <?php while ($tarefa = $tarefas->fetch_assoc()): ?>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <?php echo $tarefa['descricao']; ?>
+                            <form method="POST" action="" style="margin: 0;">
+                                <input type="hidden" name="tarefa_id" value="<?php echo $tarefa['id']; ?>">
+                                <?php if ($tarefa['status'] != 'concluída'): ?>
+                                    <button type="submit" class="btn btn-success btn-sm" name="concluir">Concluir</button>
+                                <?php else: ?>
+                                    <button type="button" class="btn btn-concluida btn-sm" disabled>Concluída</button>
+                                <?php endif; ?>
+                            </form>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
             </div>
-        <?php endwhile; ?>
-    <?php else: ?>
-        <p>Nenhuma tarefa encontrada.</p>
-    <?php endif; ?>
+        </div>
+    </div>
 </div>
 
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

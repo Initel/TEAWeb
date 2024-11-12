@@ -58,23 +58,13 @@ include_once("./ecommerce.php")
 </nav>
 
 
-
-
-
-
-
 <div class="container">
   <div class="row">
     <div class="col mt-5">
     <?php      
       switch(@$_REQUEST["page"]){      
         case "excluir": include_once("./CRUD/P_delete.php"); break;
-        case "atualizar": include_once("./CRUD/P_update.php");break;
-        case "compras": include_once("./CRUD/P_compra.php"); break;
-        case "vendas": include_once("./CRUD/P_Prod.php"); break;
-        case "nota": include_once("./nfeRH/nota.php"); break;
-        case "rh": include_once("./nfeRH/rh.php"); break;
-        case "home": echo("teste"); break;
+        case "atualizar": include_once("./CRUD/P_update.php");break;        
         default: echo("olamundo"); break;
       }
     ?>

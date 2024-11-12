@@ -74,13 +74,9 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
       case "novo": include_once("./CRUD/P_create.php"); break;
       case "excluir": include_once("./CRUD/P_delete.php"); break;
       case "atualizar": include_once("./CRUD/P_update.php");break;
-      case "ler": include_once("./CRUD/P_read.php"); break;
-      case "compras": include_once("./CRUD/P_compra.php"); break;
-      case "vendas": include_once("./CRUD/P_Prod.php"); break;
-      case "nota": include_once("./nfeRH/nota.php"); break;
-      case "rh": include_once("./nfeRH/rh.php"); break;
-      case "home": echo("teste"); break;
-      default: echo("ola mundo"); break;
+      case "ler": include_once("./CRUD/P_read.php"); break;      
+      case "mesc": include_once("./CRUD/P_read.php"); break;      
+      default: include_once("./mesc.php"); break;
     }
   ?>
     </div>
