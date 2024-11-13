@@ -42,6 +42,18 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
           <a class="nav-link active" aria-current="page" href="./homeAdmin.php">Home</a>
         </li>
 
+        <!--Diário-->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./Diario.php">Diário</a>
+        </li>
+        <!--toDo-->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./toDo.php">Tarefas</a>
+        </li>
+        <!--Envio no whatsapp-->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./EnvioWpp.html">Musicaterapia</a>
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
