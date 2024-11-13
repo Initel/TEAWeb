@@ -5,18 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Exemplo de Botões</title>
+    <style>
+        body {
+            background-color: #a2dff7; /* Cor de fundo suave */
+        }
+        .btn-custom {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary {
+            background-color: #42c7ff; /* Azul claro */
+            border-color: #42c7ff;
+        }
+        .btn-secondary {
+            background-color: #ff82ae; /* Rosa */
+            border-color: #ff82ae;
+        }
+        .btn-success {
+            background-color: #ffa600; /* Laranja */
+            border-color: #ffa600;
+        }
+        .container {
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">        
-        <div class="row justify-content-center mt-4">
+    <div class="container">        
+        <div class="row justify-content-center">
             <div class="col-auto">
-                <a class="btn btn-primary" href="?page=diario">Diario</a>
+                <a class="btn btn-primary btn-custom" href="?page=diario">Diário</a>
             </div>
             <div class="col-auto">
-                <a class="btn btn-secondary" href="?page=mterapia">Musica Terapia</a>
+                <a class="btn btn-secondary btn-custom" href="?page=mterapia">Música Terapia</a>
             </div>
             <div class="col-auto">
-                <a class="btn btn-success" href="?page=tarefas">Lista de tarefas</a>
+                <a class="btn btn-success btn-custom" href="?page=tarefas">Lista de Tarefas</a>
             </div>            
         </div>
     </div>
@@ -26,4 +53,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
