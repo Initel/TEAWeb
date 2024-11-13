@@ -15,7 +15,7 @@ include_once("./connect.php");
          </div>
          <?php
      } else {
-         $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')"; 
+         $sql = "INSERT INTO usuarios (nome, email, senha, responsavel, nivel, tipo_acompanhamento, idade) VALUES ('$nome', '$email', '$senha', '$nome_R', '$nv_S', '$tipo_A', '$idade')"; 
          if ($conn->query($sql) === TRUE) {
              echo "Usuário cadastrado com sucesso!";
              header("Location: index.php");

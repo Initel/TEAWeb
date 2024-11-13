@@ -10,10 +10,10 @@
     <div class="container mt-5">        
         <div class="row justify-content-center mt-4">
             <div class="col-auto">
-                <button class="btn btn-primary">Botão 1</button>
+                <a class="btn btn-primary" href="./Diario.php">Botão 1</a>
             </div>
             <div class="col-auto">
-                <button class="btn btn-secondary">Botão 2</button>
+                <a class="btn btn-secondary">Botão 2</a>
             </div>
             <div class="col-auto">
                 <button class="btn btn-success">Botão 3</button>

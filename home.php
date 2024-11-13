@@ -14,7 +14,6 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
   exit;
 }
 
-include_once("./ecommerce.php")
 ?>
 
 <!doctype html>
@@ -79,7 +78,7 @@ include_once("./ecommerce.php")
       switch(@$_REQUEST["page"]){      
         case "excluir": include_once("./CRUD/P_delete.php"); break;
         case "atualizar": include_once("./CRUD/P_update.php");break;        
-        default: echo("olamundo"); break;
+        default: include_once('./mesc.php'); break;
       }
     ?>
     </div>
