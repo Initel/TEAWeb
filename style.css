@@ -14,3 +14,7 @@
 .nota {
     border-radius: 5px;
 }
+
+.botao_voltar {
+    color: tomato; /*Tomate*/
+}
