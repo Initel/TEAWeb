@@ -1,9 +1,9 @@
 <?php
 // session_start();
-if (!isset($_SESSION['id'])) {
+/*if (!isset($_SESSION['id'])) {
     header("Location: index.php"); // Redireciona para a página de login
     exit();
-}
+}*/
 
 // Inclua o arquivo de conexão com o banco de dados
 include_once("./connect.php");
