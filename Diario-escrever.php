@@ -1,5 +1,4 @@
 <?php
-// Inclua o arquivo de conexão com o banco de dados
 include_once("connect.php");
 ?>
 
@@ -12,11 +11,15 @@ include_once("connect.php");
     <title>Nova anotação</title>
 
     <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #a2dff7;
+        }
+    </style>
 
 </head>
 <body>
-    <form method="post" action="./Diario.php">
-
+    <form method="post" action="?page=diario">
         <label for="emocao">Como foi seu dia hoje? </label>
         <select id="emocao" name="emocao">
             <option value="feliz" >😃</option>
@@ -28,6 +31,10 @@ include_once("connect.php");
         <textarea class="diary" id="descricao" name="descricao"></textarea><br><br>
 
         <button type="submit">Enviar</button>
+
+        <div class="col-auto">
+                <a class="btn btn-success" href="?page=home">Voltar</a>
+            </div>            
     </form>
 </body>
 </html>

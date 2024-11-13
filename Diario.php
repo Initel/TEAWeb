@@ -45,10 +45,15 @@ $diario = listarAnotacoes($usuario_id);
     <title> Diário </title>
 
     <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #a2dff7;
+        }
+    </style>
 </head>
 
 <body>
-    <a href="./Diario-escrever.php" class="botao_voltar"> Novo registro </a>
+    <a href="?page=escrever_diario" class="btn btn-primary"> Novo registro </a>
     <?php
 
         $listaEmote = [
@@ -82,6 +87,10 @@ $diario = listarAnotacoes($usuario_id);
     <?php else: ?>
         <p>Nenhuma anotação encontrada no diário.</p>
     <?php endif; ?>
+
+    <div class="col-auto">
+                <a class="btn btn-success" href="?page=home">Voltar</a>
+            </div>            
 
     
 

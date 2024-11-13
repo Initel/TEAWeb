@@ -10,13 +10,13 @@
     <div class="container mt-5">        
         <div class="row justify-content-center mt-4">
             <div class="col-auto">
-                <a class="btn btn-primary" href="./Diario.php">Botão 1</a>
+                <a class="btn btn-primary" href="?page=diario">Diario</a>
             </div>
             <div class="col-auto">
-                <a class="btn btn-secondary">Botão 2</a>
+                <a class="btn btn-secondary" href="?page=diario">Musica Terapia</a>
             </div>
             <div class="col-auto">
-                <button class="btn btn-success">Botão 3</button>
+                <a class="btn btn-success">Lista de tarefas</a>
             </div>            
         </div>
     </div>

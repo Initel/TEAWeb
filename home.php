@@ -77,7 +77,9 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
     <?php      
       switch(@$_REQUEST["page"]){      
         case "excluir": include_once("./CRUD/P_delete.php"); break;
-        case "atualizar": include_once("./CRUD/P_update.php");break;        
+        case "atualizar": include_once("./CRUD/P_update.php");break; 
+        case "diario": include_once("./Diario.php");break;        
+        case "escrever_diario": include_once("./Diario-escrever.php");break;        
         default: include_once('./mesc.php'); break;
       }
     ?>

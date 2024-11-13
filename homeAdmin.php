@@ -41,11 +41,7 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="./homeAdmin.php">Home</a>
         </li>
-
-        <!--Diário-->
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./Diario.php">Diário</a>
-        </li>
+      
         <!--toDo-->
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="./toDo.php">Tarefas</a>
@@ -81,14 +77,16 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
   <div class="row">
     <div class="col mt-5">
     <?php
-    $home = "./CRUD/P_comecioMesc.php";
+    $home = "./mesc.php";
     switch(@$_REQUEST["page"]){
       case "novo": include_once("./CRUD/P_create.php"); break;
       case "excluir": include_once("./CRUD/P_delete.php"); break;
       case "atualizar": include_once("./CRUD/P_update.php");break;
       case "ler": include_once("./CRUD/P_read.php"); break;      
-      case "mesc": include_once("./CRUD/P_read.php"); break;      
-      default: include_once("./mesc.php"); break;
+      case "home": include_once($home); break;    
+      case "diario": include_once("./Diario.php");break;        
+      case "escrever_diario": include_once("./Diario-escrever.php");break;     
+      default: include_once($home); break;
     }
   ?>
     </div>
