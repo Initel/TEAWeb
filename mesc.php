@@ -7,8 +7,7 @@
     <title>Exemplo de Botões</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Exemplo de Botões com Bootstrap</h1>
+    <div class="container mt-5">        
         <div class="row justify-content-center mt-4">
             <div class="col-auto">
                 <button class="btn btn-primary">Botão 1</button>
@@ -19,9 +18,9 @@
             <div class="col-auto">
                 <button class="btn btn-success">Botão 3</button>
             </div>
-            <div class="col-auto">        
+            <!-- <div class="col-auto">        
                 <button class="btn btn-danger">Botão 4</button>
-            </div>
+            </div> -->
         </div>
     </div>
 
