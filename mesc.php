@@ -17,10 +17,7 @@
             </div>
             <div class="col-auto">
                 <button class="btn btn-success">Botão 3</button>
-            </div>
-            <!-- <div class="col-auto">        
-                <button class="btn btn-danger">Botão 4</button>
-            </div> -->
+            </div>            
         </div>
     </div>
 
