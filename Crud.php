@@ -3,7 +3,7 @@
 include_once("./connect.php");
 
 //função para cadastrar usuário
- function cadastrar($nome, $email, $senha) {
+ function cadastrar($nome,$nome_R,$nv_S, $tipo_A, $idade, $email, $senha,) {
      global $conn;
 
      $sql = "SELECT * FROM usuarios WHERE email = '$email'";
@@ -126,14 +126,13 @@ function ler() {
 // Formulário para cadastrar usuário
 if (isset($_POST["cadastrar"])) {
     $nome = $_POST['nome'];
-    // $nome_R = $_POST['nome_responsavel'];
-    // $nome_C = $_POST['nome_crianca'];
-    // $nv_S = $_POST['nivel_suporte'];
-    // $tipo_A = $_POST['tipo_acompanhamento'];
-    // $idade = $_POST['idade'];
+    $nome_R = $_POST['responsavel'];
+    $nv_S = $_POST['nivel'];
+    $tipo_A = $_POST['tipo_acompanhamento'];
+    $idade = $_POST['idade'];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-    cadastrar($nome, $email, $senha);
+    cadastrar($nome,$nome_R,$nv_S, $tipo_A, $idade, $email, $senha);
 }
 
 // Formulário para excluir usuário
