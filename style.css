@@ -1,0 +1,16 @@
+.diary {
+    resize: vertical;
+    width: 75em;
+    min-height: 50px;
+    max-height: 2500px;
+}
+
+.anotacao {
+    border: 2px, solid, black;
+    border-radius: 45px;
+    padding: 15px;
+}
+
+.nota {
+    border-radius: 5px;
+}
