@@ -80,6 +80,7 @@ $tarefas = listarTarefas($_SESSION['id']);
                     <input type="text" class="form-control" name="descricao" id="descricao" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+                <a class="btn btn-success" href="?page=home">Voltar</a>            
             </form>
 
             <hr>

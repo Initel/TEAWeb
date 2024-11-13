@@ -85,7 +85,8 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
       case "ler": include_once("./CRUD/P_read.php"); break;      
       case "home": include_once($home); break;    
       case "diario": include_once("./Diario.php");break;        
-      case "escrever_diario": include_once("./Diario-escrever.php");break;     
+      case "escrever_diario": include_once("./Diario-escrever.php");break;  
+      case "tarefas": include_once("./toDo.php");break;     
       default: include_once($home); break;
     }
   ?>

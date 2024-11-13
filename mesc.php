@@ -13,10 +13,10 @@
                 <a class="btn btn-primary" href="?page=diario">Diario</a>
             </div>
             <div class="col-auto">
-                <a class="btn btn-secondary" href="?page=diario">Musica Terapia</a>
+                <a class="btn btn-secondary" href="?page=mterapia">Musica Terapia</a>
             </div>
             <div class="col-auto">
-                <a class="btn btn-success">Lista de tarefas</a>
+                <a class="btn btn-success" href="?page=tarefas">Lista de tarefas</a>
             </div>            
         </div>
     </div>
