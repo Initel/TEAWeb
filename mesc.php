@@ -28,6 +28,10 @@
             background-color: #ffa600; /* Laranja */
             border-color: #ffa600;
         }
+        .btn-info {
+            background-color: #17a2b8; /* Azul escuro */
+            border-color: #17a2b8;
+        }
         .container {
             margin-top: 100px;
         }
@@ -44,6 +48,9 @@
             </div>
             <div class="col-auto">
                 <a class="btn btn-success btn-custom" href="?page=tarefas">Lista de Tarefas</a>
+            </div>
+            <div class="col-auto">
+                <a class="btn btn-info btn-custom" href="?page=atividades">Atividades</a>
             </div>            
         </div>
     </div>

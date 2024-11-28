@@ -107,6 +107,7 @@ if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
       case "escrever_diario": include_once("./Diario-escrever.php");break;  
       case "tarefas": include_once("./toDo.php");break; 
       case "mterapia": include_once("./mterapia.php");break;      
+      case "atividades": include_once("./atividades.php");break; 
       default: include_once($home); break;
     }
   ?>
